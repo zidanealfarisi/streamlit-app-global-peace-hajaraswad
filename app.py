@@ -184,8 +184,8 @@ else:
             st.warning("Negara ini tidak mengalami penurunan indeks OVERALL SCORE dalam 3 tahun terakhir. Berpotensi naik pada tahun berikutnya.")
 
      # Menampilkan line chart untuk indeks OVERALL SCORE dalam 3 tahun terakhir
-            fig_line_chart = px.line(last_three_years_data_alert, x='year', y='Overall Scores', color='Country',
-                                     labels={'Overall Scores': 'Overall Scores', 'year': 'Year'})
+            # fig_line_chart = px.line(last_three_years_data_alert, x='year', y='Overall Scores', color='Country',
+            #                          labels={'Overall Scores': 'Overall Scores', 'year': 'Year'})
             
-            fig_line_chart.update_layout(title=f'Tren Indeks OVERALL SCORE (3 Tahun Terakhir) - {selected_country_alert}')
-            st.plotly_chart(fig_line_chart)
+            # fig_line_chart.update_layout(title=f'Tren Indeks OVERALL SCORE (3 Tahun Terakhir) - {selected_country_alert}')
+            # st.plotly_chart(fig_line_chart)
