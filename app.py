@@ -59,7 +59,7 @@ datSet = pd.read_csv("dataset/clean.csv")
 #     st.warning("Data tidak tersedia untuk ditampilkan.")
 
 
-st.write('---')
+# st.write('---')
 
 
 # #bottom10
