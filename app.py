@@ -26,73 +26,6 @@ st.write('----------')
 
 datSet = pd.read_csv("dataset/clean.csv")
 
-
-#top10
-# Mengambil 10 negara dengan skor keseluruhan tertinggi
-# top10_dangerous = datSet.groupby('Country')['Overall Scores'].mean().nlargest(10).index
-
-# # Memfilter data untuk 10 negara paling berbahaya
-# filtered_data_top10 = datSet[datSet['Country'].isin(top10_dangerous)]
-
-# # Menyusun ulang data berdasarkan nilai 'Overall Scores' yang paling besar
-# sorted_countries = filtered_data_top10.groupby('Country')['Overall Scores'].max().sort_values(ascending=False).index
-# filtered_data_top10 = filtered_data_top10.set_index('Country').loc[sorted_countries].reset_index()
-
-# # Menampilkan line chart untuk 10 negara paling berbahaya
-# if not filtered_data_top10.empty:
-#     fig = px.line(
-#         filtered_data_top10,
-#         x='year',
-#         y='Overall Scores',
-#         color='Country',
-#         line_group='Country',  # Menambahkan ini untuk mengelompokkan berdasarkan Country pada legend
-#         markers=True,
-#         title='Top 10 Negara Paling Berbahaya',
-#     )
-
-#     fig.update_layout(
-#         xaxis=dict(tickmode='array', tickvals=list(filtered_data_top10['year'].unique()), ticktext=['Seluruh Tahun' if year == 'Semua Tahun' else year for year in filtered_data_top10['year'].unique()]),
-#     )
-
-#     st.plotly_chart(fig, use_container_width=True, Width=900, Heigth=700)
-# else:
-#     st.warning("Data tidak tersedia untuk ditampilkan.")
-
-
-# st.write('---')
-
-
-# #bottom10
-# # Mengambil 10 negara dengan skor keseluruhan terendah
-# top10_peaceful = datSet.groupby('Country')['Overall Scores'].mean().nsmallest(10).index
-
-# # Memfilter data untuk 10 negara paling damai
-# filtered_data_top10_peaceful = datSet[datSet['Country'].isin(top10_peaceful)]
-
-# # Menyusun ulang data berdasarkan nilai 'Overall Scores' yang paling kecil
-# sorted_countries_peaceful = filtered_data_top10_peaceful.groupby('Country')['Overall Scores'].min().sort_values().index
-# filtered_data_top10_peaceful = filtered_data_top10_peaceful.set_index('Country').loc[sorted_countries_peaceful].reset_index()
-
-# # Menambah satu bar lagi untuk keterangan "2019-2023"
-# filtered_data_top10_peaceful_with_all_years = pd.concat([filtered_data_top10_peaceful, datSet[datSet['Country'].isin(top10_peaceful) & (datSet['year'] == '2019-2023')]])
-
-# # Menampilkan bar chart untuk 10 negara paling damai
-# if not filtered_data_top10_peaceful_with_all_years.empty:
-#     fig = px.bar(
-#         filtered_data_top10_peaceful_with_all_years,
-#         x='Country',
-#         y='Overall Scores',
-#         color='year',
-#         title='Top 10 Negara Paling Damai',
-#         category_orders={'Country': sorted_countries_peaceful},  # Menambahkan ini untuk mengurutkan negara dari yang paling damai
-#     )
-
-#     st.plotly_chart(fig, use_container_width=True, Width=900, Heigth=700)
-# else:
-#     st.warning("Data tidak tersedia untuk ditampilkan.")
-
-# st.write("---")
-
 st.write("")
 
 st.subheader("Diagram & Alert System")
@@ -182,10 +115,3 @@ else:
             st.success("Negara ini mengalami penurunan indeks OVERALL SCORE dalam 3 tahun terakhir.")
         else:
             st.warning("Negara ini tidak mengalami penurunan indeks OVERALL SCORE dalam 3 tahun terakhir. Berpotensi naik pada tahun berikutnya.")
-
-     # Menampilkan line chart untuk indeks OVERALL SCORE dalam 3 tahun terakhir
-            # fig_line_chart = px.line(last_three_years_data_alert, x='year', y='Overall Scores', color='Country',
-            #                          labels={'Overall Scores': 'Overall Scores', 'year': 'Year'})
-            
-            # fig_line_chart.update_layout(title=f'Tren Indeks OVERALL SCORE (3 Tahun Terakhir) - {selected_country_alert}')
-            # st.plotly_chart(fig_line_chart)
